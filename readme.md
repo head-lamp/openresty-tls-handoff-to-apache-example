@@ -1,3 +1,12 @@
+# rundown
+when a request comes into your machine, nginx will be listening on :80 to redirect traffic over https
+and will be listening on :443 to make the tls handshake
+
+when a request comes in over https nginx will run some lua code that finds your 'server_name' and
+then looks for some certs to make the tls handshake
+
+after the handshake is complete it'll forward it to apache (or whatever is listening on :8080)
+
 # installation
 ## (debian) instructions pulled from openresty website
 ### import openresty gpg key and add it to apt-key
